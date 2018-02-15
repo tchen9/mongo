@@ -27,3 +27,11 @@ def findInZipGrade(zip, grade):
         print '\n'
 
 findInZipGrade('10460', 'B')
+
+def findInZipScore(zip, score):
+    rests = collection.find({'address.zipcode' : zip, 'grades.score' : {"$gte" : score}})
+    for rest in rests:
+        print rest
+        print '\n'
+
+findInZipScore('10460', 15)
